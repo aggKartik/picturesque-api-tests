@@ -1,0 +1,7 @@
+{
+  "profile" : {
+    "endpoint": "http://localhost",
+    "port": 8080,
+    "basePath": "/v1/"
+  }
+}
