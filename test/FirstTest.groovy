@@ -2,7 +2,7 @@ import groovy.json.JsonBuilder
 import org.junit.BeforeClass
 import org.junit.Test
 
-import static com.jayway.restassured.RestAssured.given
+import static io.restassured.RestAssured.given
 import static org.hamcrest.MatcherAssert.assertThat
 import static org.hamcrest.Matchers.equalTo
 
@@ -24,9 +24,11 @@ class FirstTest extends BaseTest {
                                              "dob": "1990-10-12"]
 
         JsonBuilder json = new JsonBuilder(personDetails)
+
+
         String message = given().header(CONTENT_TYPE).and().body(json.toString())
                 .when().post("/v1/person").then().statusCode(200).and()
-                .extract().jsonPath().get("response.message").toString()
+                .extract().jsonPath().get("response.message")
 
         assertThat(message, equalTo("User testingdoe$now added successfully!"))
 

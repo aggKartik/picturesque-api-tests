@@ -1,5 +1,6 @@
-import com.jayway.restassured.response.Header
+
 import groovy.json.JsonSlurper
+import io.restassured.http.Header
 import org.json.JSONObject
 
 class BaseTest {
